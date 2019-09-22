@@ -32,8 +32,8 @@ indicator = #52616b
 arrow0 = #f0f5f9
 arrow1 = #c9d6df
 arrow2 = #52616b
-cpubar = #036ffc
-rambar = #f51505
+cpubar = #fff
+rambar = #fff
 
 ### Monolith Day Theme ###
 ;background-panel = #311d3f
@@ -172,7 +172,7 @@ font-3 = "FontAwesome5Brands:pixelsize=12;3"
 
 modules-left = bspwm 
 modules-center = 
-modules-right = arrow0 networkspeedup networkspeeddown wlan arrow1 cpu memory temperature arrow2 backlight-acpi volume battery arrow3 date
+modules-right = arrow0 networkspeedup networkspeeddown wlan arrow1 cpu memory arrow2 backlight-acpi volume battery arrow3 time
 
 tray-detached = false
 tray-offset-x = 0
@@ -384,6 +384,14 @@ format-prefix-foreground = ${colors.foreground}
 format-foreground = ${colors.foreground}
 format-background = ${colors.background-panel}
 label = "%date% %time% "
+
+[module/time]
+type = internal/date
+interval = 5
+time = "  %H:%M"
+format-foreground = ${colors.foreground}
+format-background = ${colors.background-panel}
+label = "%time%"
 
 #################################################################
 
