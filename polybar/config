@@ -393,37 +393,7 @@ format-foreground = ${colors.foreground}
 format-background = ${colors.background-panel}
 label = "%time%"
 
-#################################################################
-
-[module/kernel]
-type = custom/script
-exec = uname -r
-tail = false
-interval = 1024
-
-format-foreground = ${colors.foreground}
-format-background = ${colors.background}
-format-prefix = "  "
-format-prefix-foreground = #0084FF
-format-underline = #4B5665
-
-################################################################################
-
-[module/load-average]
-type = custom/script
-exec = uptime | grep -ohe 'load average[s:][: ].*' | awk '{ print $3" "$4" "$5"," }' | sed 's/,//g'
-interval = 100
-
-;label = %output%
-label = %output:10%
-
-format-foreground = ${colors.foreground}
-format-background = ${colors.background}
-format-prefix = "  "
-format-prefix-foreground = #62FF00
-format-underline = #62FF00
-
-################################################################################
+###############################################################################
 
 [module/memory]
 type = internal/memory
@@ -452,32 +422,6 @@ label = "  %percentage_used:1%%"
 format = <label>
 label-foreground = ${colors.background}
 label-background = ${colors.arrow1} 
-
-
-################################################################################
-
-[module/mpd]
-;https://github.com/jaagr/polybar/wiki/Module:-mpd
-type = internal/mpd
-;format-online =  "<label-song>   <icon-prev>  <icon-stop>  <toggle>  <icon-next>"
-format-online =  "<label-song>  <bar-progress>"
-;format-online =  "<label-song>  <bar-progress> <icon-prev>  <icon-stop>  <toggle>  <icon-next>"
-icon-prev = 
-icon-stop = 
-icon-play = 
-icon-pause = 
-icon-next = 
-label-song-maxlen = 40
-label-song-ellipsis = true
-bar-progress-width = 10
-bar-progress-indicator = 
-bar-progress-fill = 
-bar-progress-empty = 
-bar-progress-fill-foreground = #ff0
-bar-progress-fill-background = ${colors.background}
-bar-progress-indicator-foreground = ${colors.foreground}
-format-online-foreground = ${colors.foreground}
-format-online-background = ${colors.background}
 
 ################################################################################
 
@@ -562,34 +506,6 @@ ramp-1-background = ${colors.arrow1}
 ramp-2-background = ${colors.arrow1}
 ramp-3-background = ${colors.arrow1}
 ramp-4-background = ${colors.arrow1}
-
-################################################################################
-
-[module/uptime]
-type = custom/script
-exec = uptime | awk -F, '{sub(".*up ",x,$1);print $1}'
-interval = 100
-label = Uptime : %output%
-
-format-foreground = ${colors.foreground}
-format-background = ${colors.background}
-format-prefix = " "
-format-prefix-foreground = #C15D3E
-format-underline = #C15D3E
-
-################################################################################
-
-[module/weather]
-type = custom/script
-interval = 10
-format = <label>
-format-prefix = " "
-format-prefix-foreground = #3EC13F
-format-underline = #3EC13F
-format-foreground = ${colors.foreground}
-format-background = ${colors.background}
-exec = python -u ~/.config/polybar/scripts/weather.py
-tail = true
 
 #################################################################################
 
