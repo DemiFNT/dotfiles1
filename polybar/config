@@ -131,7 +131,7 @@ rambar = #fff
 
 [bar/mainbar-bspwm]
 width = 100%
-height = 24
+height = 22
 offset-x = 0
 offset-y = 0
 radius = 0.0
@@ -169,6 +169,7 @@ font-0 = Hack:size=10;3
 font-1 = "FontAwesome5Free:style=Solid:pixelsize=12;3"
 font-2 = "FontAwesome5Free:style=Regular:pixelsize=12;3"
 font-3 = "FontAwesome5Brands:pixelsize=12;3"
+font-4 = Hack:size=11;3
 
 modules-left = bspwm 
 modules-center = 
@@ -240,29 +241,25 @@ format-background = ${colors.background-panel}
 
 [module/arrow0]
 type = custom/text
-content = "%{T2} %{T-}"
-content-font = 2
+content = "%{T5}  %{T-}"
 content-foreground = ${colors.arrow0}
 content-background = ${colors.background-panel}
 
 [module/arrow1]
 type = custom/text
-content = "%{T2} %{T-}"
-content-font = 2
+content = "%{T5}  %{T-}"
 content-foreground = ${colors.arrow1} 
 content-background = ${colors.arrow0}
 
 [module/arrow2]
 type = custom/text
-content = "%{T2} %{T-}"
-content-font = 2
+content = "%{T5}  %{T-}"
 content-foreground = ${colors.arrow2}
 content-background = ${colors.arrow1}
 
 [module/arrow3]
 type = custom/text
-content = "%{T2} %{T-}"
-content-font = 2
+content = "%{T5}  %{T-}"
 content-foreground = ${colors.background-panel}
 content-background = ${colors.arrow2}
 
@@ -371,7 +368,6 @@ label = "  %percentage:%% "
 format-foreground = ${colors.background}
 format-background = ${colors.arrow1}
 
-
 ################################################################################
 
 [module/date]
@@ -393,7 +389,7 @@ format-foreground = ${colors.foreground}
 format-background = ${colors.background-panel}
 label = "%time%"
 
-###############################################################################
+################################################################################
 
 [module/memory]
 type = internal/memory
@@ -422,6 +418,31 @@ label = "  %percentage_used:1%%"
 format = <label>
 label-foreground = ${colors.background}
 label-background = ${colors.arrow1} 
+
+################################################################################
+
+[module/mpd]
+;https://github.com/jaagr/polybar/wiki/Module:-mpd
+type = internal/mpd
+;format-online =  "<label-song>   <icon-prev>  <icon-stop>  <toggle>  <icon-next>"
+format-online =  "<label-song>  <bar-progress>"
+;format-online =  "<label-song>  <bar-progress> <icon-prev>  <icon-stop>  <toggle>  <icon-next>"
+icon-prev = 
+icon-stop = 
+icon-play = 
+icon-pause = 
+icon-next = 
+label-song-maxlen = 40
+label-song-ellipsis = true
+bar-progress-width = 10
+bar-progress-indicator = 
+bar-progress-fill = 
+bar-progress-empty = 
+bar-progress-fill-foreground = #ff0
+bar-progress-fill-background = ${colors.background}
+bar-progress-indicator-foreground = ${colors.foreground}
+format-online-foreground = ${colors.foreground}
+format-online-background = ${colors.background}
 
 ################################################################################
 
@@ -507,7 +528,7 @@ ramp-2-background = ${colors.arrow1}
 ramp-3-background = ${colors.arrow1}
 ramp-4-background = ${colors.arrow1}
 
-#################################################################################
+################################################################################
 
 [module/wired-network]
 type = internal/network
